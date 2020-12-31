@@ -123,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument('password', metavar="PASSWORD", type=str, help='MariaDB database password.')
     parser.add_argument('name', metavar="DB_NAME", type=str, help='MariaDB database name.')
     parser.add_argument('search_term', metavar="SEARCH_TERM", type=str, help='YouTube search term to find livestream chats.')
-    parser.add_argument('--pages', type=int, default=5, help='Amount of pages to fetch. (Default: 5)')
+    parser.add_argument('--pages', type=int, default=5, help='Amount of pages to fetch. Each pages consists of 20 search results. (Default: 5)')
     args = parser.parse_args()
     logging.basicConfig(
         format="%(asctime)s: %(message)s",
