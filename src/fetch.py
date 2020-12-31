@@ -59,7 +59,9 @@ def getStreams(search_term: str, pages: int) -> list[str]:
 
 
 def getChats(search_term: str, pages: int):
-    """This function is essentially an endless loop which fetches new messages for each chat and adds them to the database. After a period of time, getStreams is called again to have a fresh list of streamIds.
+    """This function is essentially an endless loop which fetches new messages
+    for each chat and adds them to the database. After a period of time,
+    getStreams is called again to have a fresh list of streamIds.
     """
     timeout: float = time.time() + 60 * 120  # 2h
     stream_ids: list[str] = getStreams("christmas", pages)
