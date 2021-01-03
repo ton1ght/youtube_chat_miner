@@ -11,6 +11,13 @@ from youtubesearchpython import CustomSearch
 
 
 def insertInto(tableName: str, columns: list[str], data: tuple):
+    """Constructs query to insert data
+
+    Args:
+        tableName (str): The table in which the data should be inserted
+        columns (list[str]): The columns to fill with data
+        data (tuple): A tuple containing the data for the columns
+    """
     if len(columns) != len(data):
         logging.error("Column size does not match size of provided data.")
         exit(1)
@@ -23,8 +30,6 @@ def insertInto(tableName: str, columns: list[str], data: tuple):
     command = command[:-2] + ")"
     try:
         cursor.execute(command, data)
-    except mariadb.IntegrityError:
-        logging.warning("Stream already present in database.")
     except mariadb.Error as e:
         logging.exception(f"{e}")
 
